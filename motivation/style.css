@@ -10,6 +10,7 @@ body {
     font-family:  "ヒラギノ丸ゴ Pro";     /* 文字書式 */
     background: url("images/background.jpg");     /* 背景表示　空イメージ */
     background-size: cover;      /* 画面全体表示 */
+    text-align: center;     /* 中央揃え */
 }
 
 
@@ -37,7 +38,7 @@ body {
 
 /* 今日の「やる気が出る言葉」 */
 .random{
-    height:700px;
+    height: auto;     /* 高さ自動調整 */
     padding: 30px;     /* 内側の余白 */
     margin: 50px;    /* 外側の余白 */
     border-radius: 10px;     /* 角丸 */
@@ -89,7 +90,7 @@ body {
 
 /* 名言集 */
 .list{
-    height:500px;
+    height: auto;     /* 高さ自動調整 */
     padding: 30px;     /* 内側の余白 */
     margin: 50px;     /* 外側の余白 */
     border-radius: 5px;     /* 角丸 */
@@ -106,3 +107,8 @@ body {
     letter-spacing : 20px;     /* 文字の間隔 */
     text-decoration: underline;     /* 文字の下線 */
 }
+
+table {
+    background-color: rgba(242, 241, 230, 0.401);
+}
+
