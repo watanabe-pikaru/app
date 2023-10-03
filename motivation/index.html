@@ -1,0 +1,40 @@
+
+<!-- コメントアウト -->
+
+<!DOCTYPE html>     <!-- DOCTYPEは、「Document Type」の略で、「ドキュメントの型」という意味です。ここでは、文書がHTMLの型であることを宣言しています。 -->
+  <head>     <!-- headタグで囲まれたところ(head要素)にHTMLの文書の情報を書いていきます。 -->
+    <meta charset="UTF-8" />     <!-- 文字コードを指定しています。推奨されている文字コード「UTF-8」を指定しましょう。UTF-8以外だとブラウザに表示されたとき文字化けを起こす可能性があります。 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />     <!-- IE(Internet Explorer)を最新バージョンで動かさせるためのコードです。 --> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />     <!-- 「width=”device-width」は使用端末の横幅にページの横の長さを合わせるという意味です。また、「initial-scale=”1.0″」は初めにページが非表示されるとき、画面の倍率が1倍(つまりズームなし)という意味です。 -->
+    <title>自作アプリ</title>     <!-- タイトルは検索結果と、ブラウザのタブの上部に表示されます。 -->
+    <link rel="stylesheet" href="style.css">     <!-- このコードにより、別に用意してあるCSSファイルを読み込むことができます。 -->
+    <link rel="stylesheet" href="sanitize.css">     <!-- ブラウザデフォルトのCSSの違いを統一して、見た目を整える -->
+  </head>
+  <body>     <!-- bodyタグに囲まれたところ(body要素)に書いたものが、ブラウザに目に見える形で表示されます。 -->
+    
+    <!-- タイトル -->
+    <div class="title">
+      <h1>燃えろ！！　あひる組</h1>
+      <p>
+        みんなにだって力はある。誰だってパワーを持ってる。<br>
+        見た目じゃ分かんねえ。どんな凄え力が潜んでるか分からねえ。<br>
+        それを「可能性」って言うんだ。<br>
+      </p>
+    </div>
+
+    <!-- フレーズをランダムに表示 -->
+    <div class="random">
+      <h1>今日の「やる気が出る言葉」</h1>
+      <p id="result"></p>     <!-- ランダム結果表示。 IDはjavascriptでも使用。-->
+      <button id="random_btn">やる気スイッチ</button>     <!-- ボタン。IDはjavascriptでも使用 -->
+    </div>
+
+    <!-- フレーズを見たり、編集したりしたい -->
+    <div class="list">
+      <h1>名言集</h1>
+      
+    </div>
+  
+    <script src="random.js"></script>     <!-- scriptタグで、JavaScriptを記述した外部ファイルを読み込む -->
+  </body>
+</html>
