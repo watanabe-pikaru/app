@@ -1,114 +1,237 @@
 
-/* コメントアウト */
+/* スタイルシート */
 
 
 @charset "utf-8";
 
 
-/* 全体背景　空イメージ */
+/* 各ページ共通---------------------------------------------------------------------- */
 body {
-    font-family:  "ヒラギノ丸ゴ Pro";     /* 文字書式 */
-    background: url("images/background.jpg");     /* 背景表示　空イメージ */
+    background: url("background.jpg");     /* 背景表示　空イメージ */
+    min-height: 100vh;     /* 高さを画面いっぱいにする　*/
     background-size: cover;      /* 画面全体表示 */
-    text-align: center;     /* 中央揃え */
-}
-
-
-/* 燃えろ！ */
-.title{
-    padding: 30px 0;     /* 内側の余白 */ /* 上下100px、左右0 */
-    margin: 50px;     /* 外側の余白 */
     border-radius: 10px;     /* 角丸 */
+    font-family:  "ヒラギノ丸ゴ Pro";     /* 文字書式 */
+    text-align: center;     /* 中央揃え */
+    font-size: 20px;      /* 文字の大きさ */
+    color: black;      /* フォントカラー */
+    font-weight: bold;     /* 文字の太さ */
 }
 
+
+/* トップ青空すぺーす----------------------------------------------------------------- */
+.title{
+    padding: 30px 0;     /* 内側の余白  上下30px、左右0 */
+    margin: 50px;     /* 外側の余白 */
+}
+
+
+/* 「燃えろ！あひる組」 */
 .title h1{
     text-align: center;     /* 中央揃え */
-    color : #FFFF99;     /* フォントカラー */
-    font-size: 50px;     /* 文字の大きさ */
-    font-weight: bold;     /* 文字の太さ */
+    color : #FFFF99;     
+    font-size: 100px;     
 }
 
+
+/* 「可能性」について */
 .title p{
-    text-align: right;     /* 中央揃え */
-    color : rgb(0, 0, 0);     /* フォントカラー */
-    font-size: 20px;     /* 文字の大きさ */
-    font-weight: bold;     /* 文字の太さ */
+    text-align: right;     
+    color : rgb(0, 0, 0);     
+    font-size: 20px;     
+    font-weight: bold;     
     padding: 0 50px;
 }
 
-/* 今日の「やる気が出る言葉」 */
+
+
+/* 黒板すぺーす-------------------------------------------------------------------------- */
 .random{
     height: auto;     /* 高さ自動調整 */
-    padding: 30px;     /* 内側の余白 */
-    margin: 50px;    /* 外側の余白 */
-    border-radius: 10px;     /* 角丸 */
-    background: url("images/blackboard.jpg");     /* 背景表示　黒板イメージ */
+    padding: 30px;     
+    margin: 50px;    
+    border-radius: 10px;
+    background: url("blackboard.jpg");     /* 背景表示　黒板イメージ */
     background-size: cover;      /* 画面全体表示 */
-
- 
+    color : white;     /* 文字白色　チョークをイメージ */
+    letter-spacing : 5px;     /* 文字の間隔 */
 }
 
+
+/* 今日の「やる気が出る言葉」 */
 .random h1{
-    text-align: center;     /* 中央揃え */
-    color : white;     /* フォントカラー */
-    font-size: 30px;     /* 文字の大きさ */
-    font-weight: bold;     /* 文字の太さ */
-    letter-spacing : 5px;     /* 文字の間隔 */
+    font-size: 30px;      
     text-decoration: underline;     /* 文字の下線 */
 }
 
-#result{
-    text-align: center;     /* 中央揃え */
-    color : white;     /* フォントカラー */
-    font-size: 50px;     /* 文字の大きさ */
-    font-weight: bold;     /* 文字の太さ */
-    letter-spacing : 5px;     /* 文字の間隔 */
+
+/* ランダム結果 */
+#result{  
+    font-size: 50px;     
+    text-shadow:        /* 文字周りの影 */
+        4px 4px 4px brown, 
+        -4px -4px 4px brown,
+        -4px 4px 4px brown,  
+        4px -4px 4px brown,
+        4px 0 4px brown, 
+        -4px  0 4px brown,
+        0 4px 4px brown,  
+        0 -4px 4px brown;
 }
 
-#random_btn{     /* buttonタグはインライン要素。 */
-    display: block;     /* インライン要素をブロック要素に変換 */
+
+/* やる気スイッチ */
+#random_btn{     
+    display: block;     /* インライン要素（buttonタグ）をブロック要素に変換 */
 	margin: auto;     /* 中央配置 */
     padding: 5px;
-    background: orange;
-    border-radius: 10px;     /* 角丸 */
+    background: orange;       /* 背景色 */
+    border-radius: 10px; 
     font-size: 20px;
-    letter-spacing : 5px;     /* 文字の間隔 */
-    color : white;     /* フォントカラー */
-    font-family:  "ヒラギノ丸ゴ Pro";     /* 文字書式 */
+    letter-spacing : 5px;     
+    color : white;     
+    font-family:  "ヒラギノ丸ゴ Pro";     
     cursor: pointer;    /* ボタンの上だけカーソル変わる */
 }
 
-/* マウスを重ねたときのスタイルを設定する　hover擬似クラス */
+
+/* マウスを重ねたときのスタイル設定　hover擬似クラス */
 #random_btn:hover {
     color : black;
 }
 
-/* ボタンが押されたときのスタイルを設定する　active擬似クラス */
+
+/* ボタンが押されたときのスタイル設定　active擬似クラス */
 #random_btn:active {
     opacity: 0.5;    /* 色薄くする */
 }
 
-/* 名言集 */
+
+
+/* 校庭すぺーす------------------------------------------------------------------------ */
 .list{
-    height: auto;     /* 高さ自動調整 */
-    padding: 30px;     /* 内側の余白 */
-    margin: 50px;     /* 外側の余白 */
-    border-radius: 5px;     /* 角丸 */
-    background: url("images/schoolyard.jpg");     /* 背景表示　校庭イメージ */
+    height: auto;     
+    padding: 30px;     
+    margin: 50px; 
+    margin-bottom: auto;    
+    border-radius: 10px;     
+    background: url("schoolyard.jpg");     /* 背景表示　校庭イメージ */
     background-size: cover;      /* 画面全体表示 */
 }
 
+
+/* がんばりノート */
 .list h1{
-    /* 文字 */
-    text-align: center;     /* 中央揃え */
-    color : black;     /* フォントカラー */
-    font-size: 30px;     /* 文字の大きさ */
-    font-weight: bold;     /* 文字の太さ */
-    letter-spacing : 20px;     /* 文字の間隔 */
-    text-decoration: underline;     /* 文字の下線 */
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(242, 241, 230, 0.401);     /* rabaで背景だけ透過 */
+    font-size: 30px;     
+    letter-spacing : 20px;   
 }
 
+
+/* テーブルのスタイル */
 table {
-    background-color: rgba(242, 241, 230, 0.401);
+    border-radius: 10px;
+    background-color: rgba(242, 241, 230, 0.701);     
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;      /* テーブル１本線*/
+    border-spacing: 0;           
+    letter-spacing : 20px;     
+    border: none;     /* 枠線無し */
+}
+
+
+/* テーブルデータのスタイル */
+td {
+    padding: 10px;
+    border-bottom: solid 1px white;
+    border-width: 1px opx;
+    word-break: break-all;     /* 改行 */
+   }
+
+
+/* 文字目立たせる */
+.note{ 
+    text-shadow: 
+        2px 2px 2px orange, 
+        -2px -2px 2px orange,
+        -2px 2px 2px orange,  
+        2px -2px 2px orange,
+        2px 0 2px orange, 
+        -2px  0 2px orange,
+        0 2px 2px orange,  
+        0 -2px 2px orange;      
+}
+
+
+/* 新規登録ページ--------------------------------------------------------------------------- */
+/* 入力欄 */
+textarea{     
+    width: 100%;
+    /* height: 500px; */
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    background-color: rgba(242, 241, 230, 0.701);
+    border:none;     
+    font-size: 40px;
+    text-align: center;
+   }
+
+
+/* 登録ボタン */
+.submit_btn{
+    background-color: rgba(242, 241, 230, 0.701);
+    border:none;
+    color : black;
+    font-size: 30px;     
+    font-weight: bold;     
+    cursor: pointer;    /* ボタンの上のカーソル変更 */
+}
+
+/* マウスを重ねたときのスタイルを設定する　hover擬似クラス */
+.submit_btn:hover {
+    color : brown;
+}
+
+
+/* ボタンが押されたときのスタイルを設定する　active擬似クラス */
+.submit_btn:active {
+    opacity: 0.5;    /* 色薄くする */
+}
+
+
+/* 「登録しました」、「未記入です」、のメッセージ */
+/* 別ファイルの「以下のデータを削除しますか？」、「削除完了」も共通 */
+.message{
+    font-size: 40px;
+    color:brown;
+  }
+
+
+/* 新規登録ボタンと削除ボタン------------------------------------------------------------- */
+#btn{
+    background-color: rgba(242, 241, 230, 0.701);
+    padding: 10px;
+    font-size: 30px;    
+    cursor: pointer;    
+}
+
+
+/* マウスを重ねたときのスタイルを設定する　hover擬似クラス */
+#btn:hover {
+    color : brown;
+}
+
+/* ボタンが押されたときのスタイルを設定する　active擬似クラス */
+#btn:active {
+    opacity: 0.5;    
+}
+
+
+/* 「トップへ戻る」のリンク---------------------------------------------------------------- */
+.a {
+    font-size: 20px;
 }
 

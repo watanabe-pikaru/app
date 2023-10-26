@@ -1,48 +1,61 @@
+
+<!-- 削除確認ページ -->
+
+
 <?php
-    if (isset($_GET['post_id'])) {
+    if (isset($_GET['id'])) {     // index.phpから削除したいテーブルのidを受信。
         try {
  
             // 接続処理
-                $db_host = "localhost";           // データベースのホスト名
-                $db_name = "motivation";          // データベースの名前
-                $db_user = "root";                // データベース接続ユーザー
-                $db_pass = "root";                // データベース接続パスワード
+            $db_host = "mysql219.phy.lolipop.lan";           
+            $db_name = "LAA1562925-motivation";          
+            $db_user = "LAA1562925";              
+            $db_pass = "root";                
 
-                try {
-                        $db = new PDO("mysql:host={$db_host};dbname={$db_name};charset=utf8", $db_user, $db_user);     // // PDOインスタンスを生成
-                        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // エラーモードの設定
-                        $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); // エミュレーションを停止。
-                    } catch (PDOException $e) {
-                        exit("データベースの接続に失敗しました"); 
-                }
+            try {
+                    $db = new PDO("mysql:host={$db_host};dbname={$db_name};charset=utf8", $db_user, $db_pass);     
+                    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+                    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); 
+            } 
+            catch (PDOException $e) {
+                exit("データベースの接続に失敗しました"); 
+            }
 
-            // SELECT文を発行
-            $sql = "SELECT * FROM posts WHERE post_id = :id";
+
+            // SELECT文でデータを抽出。
+            // idの値を直接は書かずに、プリペアドステートメントで「:id」というプレースホルダーを記述。
+            $sql = "SELECT * FROM posts WHERE post_id = :id";  
             $stmt = $db->prepare($sql);
-            $stmt->bindValue(':id', $_GET['post_id'], PDO::PARAM_INT);
-            $stmt->execute();
-            $member = $stmt->fetch(PDO::FETCH_OBJ); // 1件のレコードを取得    
+
+            // bindParamメソッドを使ってプレースホルダーに変数$idの値を設定。
+            $stmt->bindValue(':id', $_GET['id'], PDO::PARAM_INT);     
+            
+            
+            // プリペアドステートメントを実行します。
+            $stmt->execute();     
+
+            // fetchメソッドを使い、データを配列形式で取得
+            $data = $stmt->fetch(PDO::FETCH_OBJ);    
  
             
  
         } catch (PDOException $e) {
-            // エラー発生時  
-            $db->rollBack();
             exit("クエリの実行に失敗しました");
         }
  
     }
 ?>
 
+
 <!DOCTYPE html>
 
 <head>                          
     <meta charset="UTF-8" />      
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />     <!-- IE(Internet Explorer)を最新バージョンで動かさせるためのコードです。 --> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />     <!-- 「width=”device-width」は使用端末の横幅にページの横の長さを合わせるという意味です。また、「initial-scale=”1.0″」は初めにページが非表示されるとき、画面の倍率が1倍(つまりズームなし)という意味です。 -->
-    <title>削除確認</title>                                     <!-- タイトルは検索結果と、ブラウザのタブの上部に表示されます。 -->
-    <link rel="stylesheet" href="./style.css">                  <!-- このコードにより、別に用意してあるCSSファイルを読み込むことができます。 -->
-    <link rel="stylesheet" href="sanitize.css">                 <!-- ブラウザデフォルトのCSSの違いを統一して、見た目を整える -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />      
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" />   -->     
+    <title>削除確認</title>                                     
+    <link rel="stylesheet" href="./style.css">                  
+    <link rel="stylesheet" href="sanitize.css">                 
 </head>
 
 <body>
@@ -51,19 +64,25 @@
       
      <h1>削除確認</h1>
     
-     <p>以下のデータを削除しますか？</p>
+     <p class=message>以下のデータを削除しますか？</p>
     
      <table>
         <tr>
-            <td><?php print($member->post_content) ?></td>
+            <td><?php print($data->post_content) ?></td>
         </tr>
      </table>
 
-     <a href="delete.php?id=<?php print($member->post_id)?>">削除する</a><br>
+     <br>
+     <br>
+     <a href="delete.php?id=<?php print($data->post_id)?>" id="btn">削除</a>   
+     <br>
     
+     <hr>
      <a href="index.php" class="a">トップへ戻る</a>
 
     </div>
 
 </body>
+
 </html>
+
