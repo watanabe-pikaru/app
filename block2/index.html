@@ -15,12 +15,22 @@
             margin: 20px auto;   /* 中央配置。上下、左右。 */
             border: 1px solid;   /* 枠線。線の太さ、種類。*/
         }
+        button{
+            display: block;     /* インライン要素（buttonタグ）をブロック要素に変換 */
+	        margin: auto;     /* 中央配置 */
+            padding: 5px;
+        }
     </style>
- 
+</head>
 <body>
     <canvas id="myCanvas" width="480" height="320">canvas要素をサポートしていません。</canvas>
-    <script src="main.js"></script>   <!-- canvas要素の後に実行。　-->
-</head>
+    <button id="stopButton">一時停止</button>
+    <br>
+    <button id="startButton">再開</button>  
+    <br>
+    <button id="resetButton">やり直し</button>
+
+    <script src="block.js"></script>   <!-- canvas要素の後に実行。　-->
 </body>
 </html>
 
