@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブロック崩しゲーム</title>
+    <style>
+        *{
+            padding: 0;   /* 全要素の内余白を無し。 */
+            margin: 0;   /* 全要素の外余白を無し。 */
+        }
+        canvas{
+            background: #eee;
+            display: block;   /* ブロック要素にする。 */
+            margin: 20px auto;   /* 中央配置。上下、左右。 */
+            border: 1px solid;   /* 枠線。線の太さ、種類。*/
+        }
+    </style>
+ 
+<body>
+    <canvas id="myCanvas" width="480" height="320">canvas要素をサポートしていません。</canvas>
+    <script src="main.js"></script>   <!-- canvas要素の後に実行。　-->
+</head>
+</body>
+</html>
+
+
+
+
+<!-- メモ　-->
+
+<!--  *
+アスタリスク（*）をセレクタに指定すると、すべての要素を対象にスタイルを適用します。
+「ユニバーサルセレクタ」と呼ばれるセレクタです。
+単独で指定するだけではなく、他のセレクタと組み合わせて活用できます。 
+-->
+
+<!-- id
+id名を指定するときは#を使う。classはドット。 
+-->
+
+<!--   display
+display は CSS のプロパティで、要素をブロック要素とインライン要素のどちらとして扱うか、
+およびその子要素のために使用されるレイアウトを設定します。 
+-->
+
+
+<!--  block要素
+ひとつのブロックとして認識され、コンテンツをひとつにまとめるための要素のことをいいます。
+-->
+
+
+<!--  inlineの特徴
+基本的にはblockの中で用いられます。文章の一部として認識され、
+例えばテキストの装飾やリンクに使われることがあります。
+-->
+
+
+<!--   margin
+marginは要素の外側の余白を設定できる。（paddingは内側の余白。）
+センター揃えは　margin: 0px auto;
+右端ぞろえは　　margin: 0px 0px 0px auto;
+（0の場合pxは省略してもよいです）
+２つだとmargin: 【上下】【左右】;
+４つだとmargin: 【上】【右】【下】【左】;
+こうやってまとめて書く方法の名称を「　ショートハンド　」といいます。 
+-->
+
+<!-- border
+borderプロパティは要素（タグ）の枠線の指定です。
+borderプロパティは線の色（border-color）線の幅（border-width）線の種類（border-style）の3つのプロパティで構成されます。
+borderは要素の外側にできるので幅、高さに加算されます。
+ショートハンドで記述する場合、値の順番は特にありません。
+ただし3つの値（色、太さ、種類）を必ず指定する必要があります？
+ -->
+
+
+<!--  canvas
+canvas要素はHTML5から新たに追加された要素です。
+canvasタグが設置された箇所にJavaScriptによって2Dもしくは3Dの図形を描画することができます。
+canvasタグをサポートしていない古いブラウザやJavaScriptが無効のブラウザのために、タグ内には必ず代替コンテンツを記述しておきましょう。
+また、要素を指定しやすいようにid属性を付けました。
+-->
+
+<!--  <script src="main.js"></script>
+canvas要素が読み込まれる前にスクリプトを実行しようとすると 
+"Uncaught TypeError: Cannot read properties of null (reading 'getContext')" 
+というようなエラーが出ます。
+jsファイルの読み込みを</body>の直前に書いたり、
+「document.addEventListener('DOMContentLoaded')」
+のコールバック内にスクリプトを書くなどの方法で対処できると思います。
+ -->
+
