@@ -15,12 +15,12 @@
   $db_host = "mysql219.phy.lolipop.lan";           
   $db_name = "LAA1562925-motivation";          
   $db_user = "LAA1562925";              
-  $db_pass = "root1";              
+  $db_pass = "root";              
 
 
   // データベース接続
   try {
-    $db = new PDO("mysql:host={$db_host};dbname={$db_name};charset=utf8",$db_user,$db_user);   
+    $db = new PDO("mysql:host={$db_host};dbname={$db_name};charset=utf8",$db_user,$db_pass);   
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // エラーモードの設定
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); // エミュレーションを停止。
   } catch (PDOException $e) {         
@@ -73,11 +73,21 @@
     <!-- タイトルここまでーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
 
 
+    <!-- ゲームここからーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
+    <div id="block">
+      <canvas id="myCanvas" width="480" height="320">canvas要素をサポートしていません。</canvas>
+      <button id="stopButton">一時停止</button>
+      <button id="startButton">再開</button>  
+      <button id="resetButton">やり直し</button>
+    </div>
+    <!-- ゲームここまでーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
+
+
 
     <!-- ランダムここからーーーーーーーーーーーーーーーーーーーーーーーー -->
     <div class="random">
       <h1>スイッチを押すとランダムで表示が変わります。</h1>
-      <p id="result"></p>     <!-- ランダム結果 -->
+      <p id="result">???</p>     <!-- ランダム結果 -->
       <button id="random_btn">やる気スイッチ</button>    
     </div>
     <!-- ランダムここまでーーーーーーーーーーーーーーーーーーーーーーーー -->
@@ -110,6 +120,7 @@
 
 
     <!-- 外部JavaScriptファイル読み込み -->
+    <script src="block.js"></script>   <!-- canvas要素の後に実行。　-->
     <script src="random.js"></script>     
   
   </body>

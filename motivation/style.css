@@ -44,6 +44,33 @@ body {
 }
 
 
+/* ゲームすぺーす----------------------------------------------------------------- */
+
+#block{
+    height: auto;     /* 高さ自動調整 */
+    padding: 30px;     
+    margin: 50px;    
+    border-radius: 10px;
+    background: url("images/game.jpg");     /* 背景表示　黒板イメージ */
+    background-size: cover;      /* 画面全体表示 */
+}
+
+canvas{
+    background: #eee;
+    display: block;   /* ブロック要素にする。 */
+    margin: 20px auto;   /* 中央配置。上下、左右。 */
+    border: 1px solid;   /* 枠線。線の太さ、種類。*/
+}
+
+button{
+    display: inline-block;     /* インライン要素（buttonタグ）をブロック要素に変換 */
+    text-align: center;     /* 中央配置 */
+    margin: 0 10px;     /* 間隔左右10px */
+    padding: 5px;
+}
+
+
+
 
 /* 黒板すぺーす-------------------------------------------------------------------------- */
 .random{
